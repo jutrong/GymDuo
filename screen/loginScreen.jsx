@@ -1,18 +1,23 @@
-import { View } from "react-native";
 import styled from "styled-components";
 
 import Color from "../util/color";
 
 import LoginInput from "../components/Auth/loginInput";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     <LoginContainer>
       <LoginTitleWrap>
         <Welcome>Welcome</Welcome>
         <HaveAccountWrap>
           <HaveAccountText>Don't have an account?</HaveAccountText>
-          <HaveAccountLink>SignUp</HaveAccountLink>
+          <HaveAccountLink
+            onPress={() => {
+              navigation.navigate("SignupScreen");
+            }}
+          >
+            SignUp
+          </HaveAccountLink>
         </HaveAccountWrap>
       </LoginTitleWrap>
       <LoginInput />

@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 const SingupScreen = () => {
-  return;
-  <SignUpContainer>SignupScreen</SignUpContainer>;
+  return <SignUpContainer>SignupScreen</SignUpContainer>;
 };
 
-export default SignupScrren;
+export default SingupScreen;
 
-const SignUpContainer = styled.View``;
+const SignUpContainer = styled.Text``;

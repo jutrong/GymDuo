@@ -3,7 +3,13 @@ import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { useState, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import LoginScreen from "./screen/loginScreen";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import LoginScreen from "./screen/LoginScreen";
+import SignupScreen from "./screen/SignupScreen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -33,12 +39,35 @@ export default function App() {
     return null;
   }
 
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: "#1C1C28",
+    },
+  };
+
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <StatusBar style="auto" />
-        <LoginScreen />
-      </SafeAreaView>
+      <StatusBar barStyle="dark-content" />
+      <NavigationContainer theme={MyTheme}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignupScreen"
+            component={SignupScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }
@@ -46,6 +75,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1C1C28",
+    backgroundColor: "black",
   },
 });
