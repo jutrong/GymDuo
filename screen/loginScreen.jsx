@@ -5,6 +5,7 @@ import Color from "../util/color";
 import LoginInput from "../components/Auth/loginInput";
 
 const LoginScreen = ({ navigation }) => {
+  //TODO: 입력창 입력될시 버튼 색 바꾸기
   return (
     <LoginContainer>
       <LoginTitleWrap>
